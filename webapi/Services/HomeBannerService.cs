@@ -2,16 +2,16 @@
 {
     public interface IHomeBannerService
     {
-        Task<byte[]> GetHomeBannerAsync(int tenantId);
-        Task UploadHomeBannerAsync(int tenantId, byte[] bannerData);
+        Task<byte[]> GetHomeBannerAsync(string tenantName);
+        Task UploadHomeBannerAsync(string tenantName, byte[] bannerData);
     }
     public class HomeBannerService : IHomeBannerService
     {      
-        public Task<byte[]> GetHomeBannerAsync(int tenantId)
+        public Task<byte[]> GetHomeBannerAsync(string tenantName)
         {
             throw new NotImplementedException();
         }
-        public Task UploadHomeBannerAsync(int tenantId, byte[] bannerData)
+        public Task UploadHomeBannerAsync(string tenantName, byte[] bannerData)
         {
             throw new NotImplementedException();
         }

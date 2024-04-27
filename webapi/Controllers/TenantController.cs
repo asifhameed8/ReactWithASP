@@ -34,11 +34,11 @@ namespace webapi.Controllers
 
 
         [HttpPost("upload-favicon/{tenantId}")]
-        public async Task<IActionResult> UploadFavicon(int tenantId, [FromBody] byte[] faviconData)
+        public async Task<IActionResult> UploadFavicon(string tenantName, [FromBody] byte[] faviconData)
         {
             try
             {
-                await _faviconService.UploadFaviconAsync(tenantId, faviconData);
+                await _faviconService.UploadFaviconAsync(tenantName, faviconData);
                 return Ok("Favicon uploaded successfully.");
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace webapi.Controllers
         }
 
         [HttpPost("upload-home-banner/{tenantId}")]
-        public async Task<IActionResult> UploadHomeBanner(int tenantId, [FromBody] byte[] bannerData)
+        public async Task<IActionResult> UploadHomeBanner(string tenantId, [FromBody] byte[] bannerData)
         {
             try
             {
@@ -62,11 +62,11 @@ namespace webapi.Controllers
         }
 
         [HttpGet("favicon/{tenantId}")]
-        public async Task<IActionResult> GetFavicon(int tenantId)
+        public async Task<IActionResult> GetFavicon(string tenantName)
         {
             try
             {
-                var favicon = await _assetDisplayService.GetCustomAssetAsync(tenantId, "favicon");
+                var favicon = await _assetDisplayService.GetCustomAssetAsync(tenantName, "favicon");
                 if (favicon != null)
                     return File(favicon, "image/png"); // Assuming favicon is PNG format
                 else
@@ -79,11 +79,11 @@ namespace webapi.Controllers
         }
 
         [HttpGet("home-banner/{tenantId}")]
-        public async Task<IActionResult> GetHomeBanner(int tenantId)
+        public async Task<IActionResult> GetHomeBanner(string tenantName)
         {
             try
             {
-                var homeBanner = await _assetDisplayService.GetCustomAssetAsync(tenantId, "homeBanner");
+                var homeBanner = await _assetDisplayService.GetCustomAssetAsync(tenantName, "homeBanner");
                 if (homeBanner != null)
                     return File(homeBanner, "image/jpeg"); // Assuming home banner is JPEG format
                 else

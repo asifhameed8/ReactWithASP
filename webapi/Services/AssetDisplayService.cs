@@ -2,7 +2,7 @@
 {
     public interface IAssetDisplayService
     {
-        Task<byte[]> GetCustomAssetAsync(int tenantId, string assetType); // For example, "favicon" or "homeBanner"
+        Task<byte[]> GetCustomAssetAsync(string tenantName, string assetType); // For example, "favicon" or "homeBanner"
     }
     public class AssetDisplayService : IAssetDisplayService
     {
@@ -15,13 +15,13 @@
             _homeBannerService = homeBannerService;
         }
 
-        public async Task<byte[]> GetCustomAssetAsync(int tenantId, string assetType)
+        public async Task<byte[]> GetCustomAssetAsync(string tenantName, string assetType)
         {
             // Logic to determine which asset to retrieve based on assetType
             return assetType switch
             {
-                "favicon" => await _faviconService.GetFaviconAsync(tenantId),
-                "homeBanner" => await _homeBannerService.GetHomeBannerAsync(tenantId),
+                "favicon" => await _faviconService.GetFaviconAsync(tenantName),
+                "homeBanner" => await _homeBannerService.GetHomeBannerAsync(tenantName),
                 _ => null,
             };
         }
