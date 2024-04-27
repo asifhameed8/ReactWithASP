@@ -16,7 +16,6 @@
         {
             new Tenant(1, "foo", true, "theme1"),
             new Tenant(2, "bar", true, "theme2"),
-            new Tenant(3, "baz", false, "theme3"),
         };
         }
         public Tenant GetTenant(string host)
