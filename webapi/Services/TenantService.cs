@@ -1,12 +1,7 @@
 ﻿namespace webapi.Services
 {
-    public record Tenant(int Id, string Host, bool IsActive, string ThemeName)
-    {
-        internal class TenantService
-        {
-
-        }
-    }
+    public record Tenant(int Id, string Host, bool IsActive, string ThemeName);
+   
     public class TenantService
     {
         private readonly List<Tenant> _tenants;
