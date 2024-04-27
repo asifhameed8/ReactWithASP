@@ -4,7 +4,6 @@
     {
         Task<byte[]> GetCustomAssetAsync(int tenantId, string assetType); // For example, "favicon" or "homeBanner"
     }
-
     public class AssetDisplayService : IAssetDisplayService
     {
         private readonly IFaviconService _faviconService;
