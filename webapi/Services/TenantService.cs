@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Tenant
+﻿namespace webapi.Services
 {
-    public record Tenant(int Id, string Host, bool IsActive, string ThemeName);
+    public record Tenant(int Id, string Host, bool IsActive, string ThemeName)
+    {
+        internal class TenantService
+        {
 
+        }
+    }
     public class TenantService
     {
         private readonly List<Tenant> _tenants;
@@ -18,13 +19,9 @@ namespace Tenant
             new Tenant(3, "baz", false, "theme3"),
         };
         }
-
         public Tenant GetTenant(string host)
         {
             return _tenants.FirstOrDefault(t => t.Host.Equals(host, StringComparison.OrdinalIgnoreCase));
         }
     }
-
 }
-
-
