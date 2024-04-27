@@ -1,0 +1,13 @@
+/* theme2.css */
+
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: #ff5722;
+}
+
+/* Add more styles for theme 2 as needed */
